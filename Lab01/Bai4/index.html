@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Exercise 4</title>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container mt-3 border border-dark">
+        <h3>Student List</h3>
+        <div class="my-3">
+            <div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="col">
+                            <label for="age">Age</label>
+                            <input type="number" class="form-control" id="age">
+                        </div>
+                    </div>
+                </div>
+                <button id="btnLocal" class="btn btn-primary">Add to Local Storage</button>
+                <button id="btnSession" class="btn btn-danger">Add to Session Storage</button>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <h5><span class="text-primary">LocalStorage</span></h5>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table1">
+                
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <h5><span class="text-danger">SessionStorage</span></h5>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table2">
+                
+                    </tbody>
+                </table>
+        </div>
+    </div>
+   
+</body>
+
+</html>

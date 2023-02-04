@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            width: 300px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 0 10px;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 500px;
+        }
+
+        a:hover::after {
+            content: "Click to download image";
+            position: absolute;
+            background-color: #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>View image using Ajax</h2>
+    <div>
+        <input type="text" id="url">
+        <button id="view">View Image</button>
+    </div>
+    <div>
+        <a id="download" download="image.jpg" href="#">
+            <img id="image" src="">
+        </a>
+    </div>
+    <script>
+        let url = document.getElementById('url');
+        let btnView = document.getElementById('view');
+        let downloadImage = document.getElementById('download');
+        let image = document.getElementById('image');
+
+        btnView.addEventListener('click', async () => {
+            let link = url.value;
+            url.value = '';
+
+            try {
+                let response = await loadImage(link);
+                let obj = URL.createObjectURL(response);
+                image.src = obj;
+                downloadImage.href = obj;
+            } catch (err) {
+                console.log(err);
+            }
+
+            // loadImage(link).then((response) => {
+            //     let obj = URL.createObjectURL(response);
+            //     image.src = obj;
+            //     downloadImage.href = obj;
+            // }).catch((err) => {
+            //     console.log(err);
+            // })
+        });
+
+        function loadImage(link) {
+            return new Promise((resolve, reject) => {
+                let xhr = new XMLHttpRequest();
+                xhr.open('GET', link, true);
+                xhr.responseType = 'blob';
+                xhr.onload = () => {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            let response = xhr.response;
+                            // let obj = URL.createObjectURL(response);
+                            // image.src = obj;
+                            // downloadImage.href = obj;
+                            resolve(response);
+                        } else {
+                            reject('Error');
+                        }
+                    }
+                }
+                xhr.onerror = () => {
+                    reject('Error');
+                }
+                xhr.send();
+            })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Exercise 2</title>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="border border-info p-3 mt-5 w-50 mx-auto">
+            <div class="mx-3">
+                <h3>
+                    Students List
+                </h3> 
+                <i>Click one of two buttons to view the list of students.</i>
+                <br>
+                <button id="btnFetch" type="button" class="btn btn-warning btn-lg mt-3 mb-3">Fetch API</button>
+                <button id="btnAjax" type="button" class="btn btn-danger btn-lg mt-3 mb-3 mx-3">Ajax</button>
+            </div>
+            <table class="table">
+                <thead class="thead table-hover">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Age</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    
+                </tbody>
+            </table>
+            <div class="mx-3">
+                <i id="notification"></i>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

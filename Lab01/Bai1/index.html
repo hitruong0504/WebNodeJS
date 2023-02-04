@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input {
+            width: 300px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 0 10px;
+        }
+        button {
+            width: 100px;
+            height: 30px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        img {
+            max-width: 500px;
+        }
+        a:hover::after{
+            content: "Click to download image";
+            position: absolute;
+            background-color: #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>View image using Ajax</h2>
+    <div>
+        <input type="text" id="url">
+        <button id="view">View Image</button>
+    </div>
+    <div>
+        <a id="download" download="image.jpg" href="#">
+            <img id="image" src="">
+        </a>
+    </div>
+    <script>
+        let url = document.getElementById('url');
+        let btnView = document.getElementById('view');
+        let downloadImage = document.getElementById('download');
+        let image = document.getElementById('image');
+
+        btnView.addEventListener('click', function() {
+            let link = url.value;
+            url.value = '';
+            loadImage(link);
+        });
+
+        function loadImage(link) {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', link, true);
+            xhr.responseType = 'blob';
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    let blob = this.response;
+                    let object = URL.createObjectURL(blob);
+                    image.src = object;
+                    downloadImage.href = URL.createObjectURL(blob);
+                }
+            }
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
