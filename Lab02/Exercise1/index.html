@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap-grid.css' integrity='sha512-Fxj/xUyzF1sPpG8bmkIT/Rh4tAHwPn3roK9DwsoBoglSt2tfNpYWF+vWiwVw0SVhXVEjxmdDwkCzD/wtFOIAUg==' crossorigin='anonymous'/>
+    <title>Exercise 1</title>
+</head>
+<body>
+    <div class="container">
+       <div class="mx-auto">
+        <form action="/result" method="get">
+            <table>
+                <tr>
+                    <td>Operator 1</td>
+                    <td><input type="number" name="num1"></td>
+                </tr>
+                <tr>
+                    <td>Operator 2</td>
+                    <td><input type="number" name="num2"></td>
+                </tr>
+                <tr>
+                    <td>Operand</td>
+                    <td>
+                        <select name="op" id="">
+                            <option value="">Choose an operand</option>
+                            <option value="+">Addition</option>
+                            <option value="-">Subtraction</option>
+                            <option value="*">Multiplication</option>
+                            <option value="/">Division</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Calculate">
+                    </td>
+                </tr>
+            </table>
+        </form>
+       </div>
+    </div>
+</body>
+</html>
